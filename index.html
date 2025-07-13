@@ -60,6 +60,19 @@
     @keyframes draw-check {
       to { stroke-dashoffset: 0; }
     }
+    .menu-button {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+    }
+    .menu-button div {
+      height: 4px;
+      background-color: #232F3E;
+      border-radius: 2px;
+    }
     @media (max-width: 460px) {
       .amazon-logo-fallback { font-size: 1.3rem; width: 120px; height: 36px; }
       .transaction-summary { padding: 1rem; }
@@ -68,9 +81,16 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center font-sans">
   <div class="w-full max-w-md mx-auto bg-white mt-6 rounded-lg shadow-lg overflow-hidden">
-    <!-- Amazon Logo -->
-    <div class="flex mt-5 ml-6 select-none">
-      <img src="https://docs.amazonpay.amazon.in/img/amazon_pay_logo.svg" alt="Official Amazon Pay logo" class="h-10 w-auto" style="max-width:140px;">
+    <!-- Header with Menu and Amazon Logo -->
+    <div class="flex justify-between items-center p-4">
+      <div class="flex mt-1 ml-6 select-none">
+        <img src="https://docs.amazonpay.amazon.in/img/amazon_pay_logo.svg" alt="Official Amazon Pay logo" class="h-10 w-auto" style="max-width:140px;">
+      </div>
+      <div class="menu-button mr-4" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <!-- Payment Box -->
     <div class="px-6 py-8 flex flex-col items-center">
@@ -164,5 +184,11 @@
   <div class="fixed inset-x-0 bottom-0 flex justify-center pointer-events-none opacity-15 select-none z-0">
     <img src="https://docs.amazonpay.amazon.in/img/amazon_pay_logo.svg" alt="Amazon Pay logo faded background" style="opacity: 0.5; filter: blur(3px); height:66px; width:auto;">
   </div>
+
+  <script>
+    function toggleMenu() {
+      alert("Menu clicked! \n1. Account \n2. Payments \n3. Transaction History \n4. Help & Settings");
+    }
+  </script>
 </body>
 </html>
