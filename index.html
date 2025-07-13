@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon Pay - Payment Successful</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .amazon-logo-fallback {
+      background: linear-gradient(135deg, #FFD700 10%, #FF9900 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 800;
+      color: #232F3E;
+      border-radius: 12px;
+      font-size: 2rem;
+      width: 140px;
+      height: 40px;
+      letter-spacing: 2px;
+      position: relative;
+      box-shadow: 0 2px 6px 0 rgb(0 0 0 / 6%);
+    }
+    .progress-bar {
+      background: linear-gradient(90deg, #FFD700 0%, #FF9900 100%);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    }
+    .progress-bar-inner {
+      height: 10px;
+      background: linear-gradient(90deg, #00a887 0%, #febd69 100%);
+      width: 100%;
+      animation: fill-bar 2s cubic-bezier(.23,1.11,.76,.88) forwards;
+    }
+    @keyframes fill-bar {
+      0% { width: 0; }
+      50% { width: 65%; }
+      80% { width: 90%; }
+      100% { width: 100%; }
+    }
+    .checkmark-success {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #d4f5e7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: relative;
+    }
+    .checkmark-success svg {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: draw-check 1s 1.7s cubic-bezier(.36,1.03,.87,.93) forwards;
+    }
+    @keyframes draw-check {
+      to { stroke-dashoffset: 0; }
+    }
+    @media (max-width: 460px) {
+      .amazon-logo-fallback { font-size: 1.3rem; width: 120px; height: 36px; }
+      .transaction-summary { padding: 1rem; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center font-sans">
+  <div class="w-full max-w-md mx-auto bg-white mt-6 rounded-lg shadow-lg overflow-hidden">
+    <!-- Amazon Logo -->
+    <div class="flex mt-5 ml-6 select-none">
+      <img src="https://docs.amazonpay.amazon.in/img/amazon_pay_logo.svg" alt="Official Amazon Pay logo" class="h-10 w-auto" style="max-width:140px;">
+    </div>
+    <!-- Payment Box -->
+    <div class="px-6 py-8 flex flex-col items-center">
+      <!-- Progress Bar -->
+      <div class="w-3/4 progress-bar mb-6">
+        <div class="progress-bar-inner"></div>
+      </div>
+      <!-- Animated Success -->
+      <div class="checkmark-success mb-4 shadow">
+        <svg width="38" height="30" viewBox="0 0 38 30" fill="none" stroke="#00a887" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 16L15 27L34 6"/>
+        </svg>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-1 tracking-tight">Payment Successful</h2>
+      <p class="text-green-600 font-semibold text-lg mb-2">₹3,000.00</p>
+      <div class="flex flex-row items-center gap-2 text-xs text-gray-500 mb-3">
+        <span>Transaction ID:</span>
+        <span class="font-mono bg-gray-100 px-2 py-0.5 rounded">TXN243875364</span>
+      </div>
+      <div class="w-full transaction-summary bg-gray-50 rounded-lg p-4 mt-1 mb-3 shadow-sm">
+        <div class="flex flex-row justify-between items-center mb-2">
+          <span class="text-gray-700 font-semibold">Paid to</span>
+          <span class="flex flex-col items-start">
+            <span class="text-gray-700 font-semibold">Aruna</span>
+            <span class="text-gray-500 text-sm">aruna.752@pytes</span>
+          </span>
+        </div>
+        <hr class="my-2 border-gray-200">
+        <div class="flex flex-row justify-between mb-2">
+          <span class="text-gray-600">Amount</span>
+          <span class="text-gray-900 font-bold">₹3,000.00</span>
+        </div>
+        <div class="flex flex-row justify-between">
+          <span class="text-gray-600">Payment method</span>
+          <span class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#2f4cdd]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <rect x="2" y="6" width="20" height="12" rx="2" stroke-width="1.5"></rect>
+              <rect x="3.5" y="11" width="5" height="2" rx=".8" fill="#2f4cdd" stroke="none"/>
+            </svg>
+            <span class="text-gray-700 font-medium">Amazon Pay UPI (XXXX 2227)</span>
+          </span>
+        </div>
+      </div>
+      <!-- New Payment Details Section -->
+      <div class="w-full bg-white rounded-lg p-3 shadow-sm mb-4">
+        <h3 class="text-lg font-semibold text-gray-700 mb-2">Payment Details</h3>
+        <div class="flex flex-col text-gray-600">
+          <span><strong>Paid To:</strong> Aruna</span>
+          <span><strong>UPI ID:</strong> aruna.752@pytes</span>
+          <span><strong>Payment Method:</strong> Amazon Pay UPI</span>
+          <span><strong>Bank:</strong> State Bank of India</span>
+          <span><strong>Card Number:</strong> ****2227</span>
+          <span><strong>UPI Transaction ID:</strong> 519467527250</span>
+          <span><strong>Amazon Reference ID:</strong> RBAAPc698e768be3f4f46efc8552ea2aa3f</span>
+          <span><strong>Payment Date:</strong> 13 July 2025</span>
+          <span><strong>Time:</strong> 03:26 PM</span>
+        </div>
+      </div>
+      <!-- Help and Download Section -->
+      <div class="flex flex-row gap-4 w-full justify-between">
+        <button 
+          class="flex-1 py-2 bg-[#febd69] text-[#232F3E] hover:bg-[#ffd47d] rounded font-semibold shadow transition duration-150"
+          onclick="window.print()"
+        >
+          Download receipt
+        </button>
+        <button 
+          class="flex-1 py-2 bg-white text-[#00a887] hover:bg-gray-100 border border-[#00a887] rounded font-semibold shadow transition duration-150 underline"
+          onclick="window.location.href='https://www.amazon.in/gp/help/customer/contact-us'"
+        >
+          Get help
+        </button>
+      </div>
+      <!-- Security Note / Footer -->
+      <div class="text-xs text-center text-gray-400 mt-6 mb-2">
+        This payment is secured by <span class="font-semibold">Amazon Pay</span>. All details are confidential and encrypted.
+      </div>
+      <!-- Simulated Transaction Illustration Image -->
+      <div class="w-full flex justify-center mt-2 mb-1">
+        <img 
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/de3f3b03-89f8-42f2-b076-e39bbe9f1248.png" 
+          alt="Stylish digital illustration of a mobile phone with amazon pay branding"
+          class="rounded-lg shadow bg-orange-50"
+          style="min-width:180px;max-width:340px"
+          onerror="this.style.display='none';"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Background Amazon Branding for Effect -->
+  <div class="fixed inset-x-0 bottom-0 flex justify-center pointer-events-none opacity-15 select-none z-0">
+    <img src="https://docs.amazonpay.amazon.in/img/amazon_pay_logo.svg" alt="Amazon Pay logo faded background" style="opacity: 0.5; filter: blur(3px); height:66px; width:auto;">
+  </div>
+</body>
+</html>
