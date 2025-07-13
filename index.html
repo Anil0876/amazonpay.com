@@ -88,7 +88,10 @@
   <div class="w-full max-w-md mx-auto bg-white mt-6 rounded-lg shadow-lg overflow-hidden">
     <!-- Header with Menu and Amazon Logo -->
     <div class="flex justify-between items-center p-4 relative">
-      <div class="flex mt-1 ml-6 select-none">
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-black mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" onclick="goBack()">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m0 0l3-3m-3 3l3 3" />
+        </svg>
         <img src="https://docs.amazonpay.amazon.in/img/amazon_pay_logo.svg" alt="Official Amazon Pay logo" class="h-10 w-auto" style="max-width:140px;">
       </div>
       <div class="menu-button mr-4" onclick="toggleMenu()">
@@ -105,9 +108,12 @@
     </div>
     <!-- Payment Box -->
     <div class="px-6 py-8 flex flex-col items-center">
-      <!-- Progress Bar -->
-      <div class="w-3/4 progress-bar mb-6">
-        <div class="progress-bar-inner"></div>
+      <!-- Title with Share Icon -->
+      <div class="flex items-center justify-between w-full mb-4">
+        <h2 class="text-xl md:text-2xl font-bold text-gray-800">Transaction Details</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#00a887]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h4m-2-2v4m-4-4l-4 4m0-4l4-4m-4 4h4" />
+        </svg>
       </div>
       <!-- Animated Success -->
       <div class="checkmark-success mb-4 shadow">
@@ -115,7 +121,6 @@
           <path d="M4 16L15 27L34 6" />
         </svg>
       </div>
-      <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-1 tracking-tight">Payment Successful</h2>
       <p class="text-green-600 font-semibold text-lg mb-2">₹3,000.00</p>
       <div class="flex flex-row items-center gap-2 text-xs text-gray-500 mb-3">
         <span>Transaction ID:</span>
@@ -202,6 +207,11 @@
       dropdownMenu.classList.toggle('active');
     }
     
+    function goBack() {
+      // Implement your back navigation logic here
+      window.history.back();
+    }
+
     // Close the dropdown menu if clicked outside
     window.onclick = function(event) {
       if (!event.target.matches('.menu-button') && !event.target.matches('.dropdown-item')) {
