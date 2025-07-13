@@ -45,7 +45,7 @@
       width: 70px;
       height: 70px;
       border-radius: 50%;
-      background: #d4f5e7;
+      background: #00a887; /* Circle color */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -56,6 +56,7 @@
       stroke-dasharray: 48;
       stroke-dashoffset: 48;
       animation: draw-check 1s 1.7s cubic-bezier(.36,1.03,.87,.93) forwards;
+      stroke: white; /* Tick color */
     }
     @keyframes draw-check {
       to { stroke-dashoffset: 0; }
@@ -128,8 +129,8 @@
       </div>
       <!-- Animated Success -->
       <div class="checkmark-success mb-4 shadow">
-        <svg width="38" height="30" viewBox="0 0 38 30" fill="none" stroke="#00a887" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 16L15 27L34 6"/>
+        <svg width="38" height="30" viewBox="0 0 38 30" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 16L15 27L34 6" />
         </svg>
       </div>
       <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-1 tracking-tight">Payment Successful</h2>
